@@ -17,6 +17,6 @@ public class ListenerResta implements View.OnClickListener
     public void onClick(View view)
     {
         Integer resta = Integer.valueOf(contextResta.getTxtNumeroUno().getText().toString()) - Integer.valueOf(contextResta.getTxtNumeroDos().getText().toString());
-        contextResta.getTxtResultado().setText(resta);
+        contextResta.getTxtResultado().setText(resta.toString());
     }
 }

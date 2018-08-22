@@ -21,13 +21,12 @@
         android:layout_below="@+id/txtNumeroUno"
         android:id="@+id/txtNumeroDos"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_below="@+id/txtNumeroDos"
-            android:hint="RESULTADO"
-            android:id="@+id/txtResultado"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/txtNumeroDos"
+        android:id="@+id/txtResultado"/>
 
 
     <LinearLayout

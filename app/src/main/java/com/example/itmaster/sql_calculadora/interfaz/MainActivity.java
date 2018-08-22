@@ -24,25 +24,17 @@ public class MainActivity extends AppCompatActivity
         return txtNumeroUno;
     }
 
-    public void setTxtNumeroUno(EditText txtNumeroUno) {
-        this.txtNumeroUno = txtNumeroUno;
-    }
 
     public EditText getTxtNumeroDos() {
         return txtNumeroDos;
     }
 
-    public void setTxtNumeroDos(EditText txtNumeroDos) {
-        this.txtNumeroDos = txtNumeroDos;
-    }
 
     public TextView getTxtResultado() {
         return txtResultado;
     }
 
-    public void setTxtResultado(TextView txtResultado) {
-        this.txtResultado = txtResultado;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,12 +42,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtNumeroUno.findViewById(R.id.txtNumeroUno);
-        txtNumeroDos.findViewById(R.id.txtNumeroDos);
-        txtResultado.findViewById(R.id.txtResultado);
-        txtSuma.findViewById(R.id.txtSuma);
-        txtResta.findViewById(R.id.txtResta);
-        txtHistorial.findViewById(R.id.txtHistorial);
+        txtNumeroUno = findViewById(R.id.txtNumeroUno);
+        txtNumeroDos = findViewById(R.id.txtNumeroDos);
+        txtResultado = findViewById(R.id.txtResultado);
+        txtSuma = findViewById(R.id.txtSuma);
+        txtResta = findViewById(R.id.txtResta);
+        txtHistorial = findViewById(R.id.txtHistorial);
 
         listenerSuma = new ListenerSuma(this);
         listenerResta = new ListenerResta(this);

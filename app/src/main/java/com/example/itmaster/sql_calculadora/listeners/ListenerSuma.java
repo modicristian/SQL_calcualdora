@@ -16,6 +16,6 @@ public class ListenerSuma implements View.OnClickListener{
     public void onClick(View view)
     {
         Integer suma = Integer.valueOf(contextSuma.getTxtNumeroUno().getText().toString())+Integer.valueOf(contextSuma.getTxtNumeroDos().getText().toString());
-        contextSuma.getTxtResultado().setText(suma);
+        contextSuma.getTxtResultado().setText(suma.toString());
     }
 }
