@@ -1,8 +1,11 @@
 package com.example.itmaster.sql_calculadora.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.itmaster.sql_calculadora.models.Operacion;
 
 public class SqliteCalculadora extends SQLiteOpenHelper
 {
@@ -24,24 +27,31 @@ public class SqliteCalculadora extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1)
+    public void onUpgrade(SQLiteDatabase db, int i, int i1)
     {
-
+        String query = "CREATE TABLE `historial` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `operacion` INTEGER NOT NULL )";
+        db.execSQL(query);
     }
 
-    private void conectar (){
+    private void conectar ()
+    {
         conexion = getWritableDatabase();
     }
 
-    private void desconectar (){
+    private void desconectar ()
+    {
         conexion.close();
     }
 
-    public void guardarOperacion (String operacion)
+    public void guardarOperacion (Operacion operacion)
     {
         this.conectar();
 
-        
+        ContentValues fila = new ContentValues();
+
+        fila.put("operacion", operacion.getOperacion());
+
+        conexion.insert("historial",null, fila);
 
         this.desconectar();
     }

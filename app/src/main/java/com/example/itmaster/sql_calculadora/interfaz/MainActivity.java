@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity
         return txtResultado;
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -53,10 +51,9 @@ public class MainActivity extends AppCompatActivity
         listenerResta = new ListenerResta(this);
         listenerHistorial = new ListenerHistorial(this);
 
-
-
-
-
+        txtSuma.setOnClickListener(listenerSuma);
+        txtResta.setOnClickListener(listenerResta);
+        txtHistorial.setOnClickListener(listenerHistorial);
 
     }
 }
