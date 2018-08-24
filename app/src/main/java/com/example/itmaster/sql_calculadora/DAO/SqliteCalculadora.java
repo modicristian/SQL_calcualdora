@@ -10,13 +10,14 @@ import com.example.itmaster.sql_calculadora.models.Operacion;
 public class SqliteCalculadora extends SQLiteOpenHelper
 {
     private static final String DBNAME = "CALCULADORA";
-    private static final Integer DBVERSION = 1;
+    private static final Integer DBVERSION = 8;
     private Context context;
     private SQLiteDatabase conexion;
 
     public SqliteCalculadora(Context context)
     {
         super(context, DBNAME, null, DBVERSION);
+        this.context = context;
     }
 
     @Override

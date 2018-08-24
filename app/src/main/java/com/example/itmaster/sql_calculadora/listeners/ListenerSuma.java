@@ -2,11 +2,15 @@ package com.example.itmaster.sql_calculadora.listeners;
 
 import android.view.View;
 
+import com.example.itmaster.sql_calculadora.DAO.SqliteCalculadora;
 import com.example.itmaster.sql_calculadora.interfaz.MainActivity;
+import com.example.itmaster.sql_calculadora.models.Operacion;
 
 public class ListenerSuma implements View.OnClickListener{
 
     private MainActivity contextSuma;
+    private SqliteCalculadora sqliteCalculadora;
+    private Operacion operacion;
 
     public ListenerSuma(MainActivity contextSuma)
     {
@@ -20,5 +24,14 @@ public class ListenerSuma implements View.OnClickListener{
 
         contextSuma.getTxtResultado().setText(suma.toString());
 
+        sqliteCalculadora = new SqliteCalculadora(contextSuma);
+
+        operacion = new Operacion(null,String.valueOf(contextSuma.getTxtResultado()));
+
+        sqliteCalculadora.guardarOperacion(operacion);
+
     }
+
+
+
 }
