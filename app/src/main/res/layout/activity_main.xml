@@ -10,12 +10,14 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="INGRESE NUMERO"
         android:id="@+id/txtNumeroUno"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="INGRESE NUMERO"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/txtNumeroUno"
