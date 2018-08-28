@@ -2,10 +2,13 @@ package com.example.itmaster.sql_calculadora.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.itmaster.sql_calculadora.models.Operacion;
+
+import java.util.ArrayList;
 
 public class SqliteCalculadora extends SQLiteOpenHelper
 {
@@ -23,7 +26,7 @@ public class SqliteCalculadora extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String query = "CREATE TABLE `operacion` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `operacion` INTEGER NOT NULL )";
+        String query = "CREATE TABLE `historial` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `operacion` INTEGER NOT NULL )";
         db.execSQL(query);
     }
 
@@ -55,5 +58,28 @@ public class SqliteCalculadora extends SQLiteOpenHelper
         conexion.insert("historial",null, fila);
 
         this.desconectar();
+    }
+
+    public ArrayList<Operacion> getOperaciones()
+    {
+        ArrayList<Operacion> operacionArrayList = new ArrayList<Operacion>();
+        this.conectar();
+
+        String query = "";
+        query = "select id, operacion from historial";
+
+        Cursor cursor = conexion.rawQuery(query,null);
+
+        while (cursor.moveToNext()){
+
+            Operacion unaOperacion = new Operacion(cursor.getInt(cursor.getColumnIndex("id")),
+                                                   cursor.getString(cursor.getColumnIndex("operacion")));
+
+            operacionArrayList.add(unaOperacion);
+        }
+
+        this.desconectar();
+
+        return operacionArrayList;
     }
 }
