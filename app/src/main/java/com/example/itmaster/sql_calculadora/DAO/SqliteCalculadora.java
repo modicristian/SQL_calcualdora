@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SqliteCalculadora extends SQLiteOpenHelper
 {
     private static final String DBNAME = "CALCULADORA";
-    private static final Integer DBVERSION = 8;
+    private static final Integer DBVERSION = 9;
     private Context context;
     private SQLiteDatabase conexion;
 

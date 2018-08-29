@@ -26,7 +26,7 @@ public class ListenerSuma implements View.OnClickListener{
 
         sqliteCalculadora = new SqliteCalculadora(contextSuma);
 
-        operacion = new Operacion(null,String.valueOf(contextSuma.getTxtNumeroUno().getText())+" + "+String.valueOf(contextSuma.getTxtNumeroDos().getText())+" = "+String.valueOf(contextSuma.getTxtResultado()));
+        operacion = new Operacion(null,String.valueOf(contextSuma.getTxtNumeroUno().getText())+" + "+String.valueOf(contextSuma.getTxtNumeroDos().getText())+" = "+String.valueOf(contextSuma.getTxtResultado().getText()));
 
         sqliteCalculadora.guardarOperacion(operacion);
 
