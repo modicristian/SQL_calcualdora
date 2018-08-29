@@ -6,10 +6,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.itmaster.sql_calculadora.R;
 import com.example.itmaster.sql_calculadora.listeners.ListenerHistorial;
 import com.example.itmaster.sql_calculadora.listeners.ListenerResta;
 import com.example.itmaster.sql_calculadora.listeners.ListenerSuma;
+
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         txtNumeroUno = findViewById(R.id.txtNumeroUno);
