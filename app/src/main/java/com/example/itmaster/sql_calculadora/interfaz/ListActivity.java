@@ -15,7 +15,7 @@ public class ListActivity extends AppCompatActivity
 {
 
     private SqliteCalculadora sqliteCalculadora;
-    private AdapterListOperaciones listOperaciones;
+    private AdapterListOperaciones adapterListOperaciones;
     private ListView listView;
     private Operacion Op;
 
@@ -25,7 +25,11 @@ public class ListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        
+        sqliteCalculadora = new SqliteCalculadora(this);
+        listView = findViewById(R.id.txtListOperaciones);
+        adapterListOperaciones = new AdapterListOperaciones(sqliteCalculadora.getOperaciones(),this);
+        listView.setAdapter(adapterListOperaciones);
+
 
     }
 }
