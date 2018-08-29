@@ -33,7 +33,7 @@ public class SqliteCalculadora extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1)
     {
-        String query = "CREATE TABLE `historial` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `operacion` INTEGER NOT NULL )";
+        String query = "CREATE TABLE IF NOT EXISTS `historial` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `operacion` INTEGER NOT NULL )";
         db.execSQL(query);
     }
 
